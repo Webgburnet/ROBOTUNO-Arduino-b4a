@@ -20,7 +20,7 @@
 | :-------------: | :-------------: | :-------------: | :-------------: |
 | ![](/composants/SeeedStudio/Grove_Buzzer.jpg) | ![](/composants/SeeedStudio/Grove_LED.jpg) | ![](/composants/SeeedStudio/Grove_Servo.jpg) | ![](/composants/SeeedStudio/Grove_switch_p.jpg) |
 | Serial Bluetooth v3.0 | Cable| Line Finder| Micro switch|
-| ![](/composants/SeeedStudio/Grove_Serial_Bluetooth_v3.0.jpg) | ![](/composants/SeeedStudio/Grove_Cable.jpg) | ![](/composants/SeeedStudio/Grove_line_finder.jpg) | ![](/composants/SeeedStudio/Grove_Micro_switch.jpg
+| ![](/composants/SeeedStudio/Grove_Serial_Bluetooth_v3.0.jpg) | ![](/composants/SeeedStudio/Grove_Cable.jpg) | ![](/composants/SeeedStudio/Grove_line_finder.jpg) | ![](/composants/SeeedStudio/Grove_Micro_switch.jpg)
 
 ## Branchement
 | Fritzing |
