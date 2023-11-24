@@ -1,14 +1,19 @@
 ﻿Build1=Default,anywheresoftware.b4a.samples.serial
+Build2=unoevohb2023,anywheresoftware.b4a.unoevo.hb2023
 File1=1.bal
-File2=ar.jpg
-File3=av.jpg
-File4=ble.png
-File5=dt.png
-File6=en.png
-File7=noBle.png
-File8=td.jpg
-File9=tg.jpg
+File10=robot-unoevo-arduino_275850_1.jpg
+File11=socket-led-rouge-grove.jpg
+File2=bas.png
+File3=ble.png
+File4=droite.png
+File5=gauche.png
+File6=grove-buzzer.jpg
+File7=haut.png
+File8=noble.png
+File9=ori-module-grove-ble-113020007-21994_2643.jpg
 FileGroup1=Default Group
+FileGroup10=Default Group
+FileGroup11=Default Group
 FileGroup2=Default Group
 FileGroup3=Default Group
 FileGroup4=Default Group
@@ -21,15 +26,15 @@ Group=Default Group
 Library1=core
 Library2=serial
 ManifestCode=
-NumberOfFiles=9
+NumberOfFiles=11
 NumberOfLibraries=2
 NumberOfModules=0
 Version=12.5
 @EndOfDesignText@
 #Region Module Attributes
-	#FullScreen: False
+	#FullScreen: True
 	#IncludeTitle: True
-	#ApplicationLabel: Communication Bluetooth 2023
+	#ApplicationLabel: UnoEvo 2023
 	#VersionCode: 1
 	#VersionName: 
 	#SupportedOrientations: portrait
@@ -45,16 +50,15 @@ Sub Process_Globals
 End Sub
 
 Sub Globals
-	Dim btnSend As Button
-	Dim txtLog As EditText
-	Dim txtSend As EditText
 	Dim mnuConnect As Button
 	Dim mnuDisconnect As Button
-	Private Button1 As Button
-	Private Button2 As Button
-	Private Button3 As Button
-	Private Button4 As Button
-	Private ButtonRecuCapteur As Button
+	Private Avancer As Button
+	Private Droite As Button
+	Private Gauche As Button
+	Private Reculer As Button
+	Private LEDOFF As Button
+	Private LEDON As Button
+	Private BuzzerOnOff As Button
 End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
@@ -110,54 +114,92 @@ Sub Activity_Pause (UserClosed As Boolean)
 
 End Sub
 
-Sub btnSend_Click
-	If connected Then
-		TextWriter1.WriteLine(txtSend.Text)
-		TextWriter1.Flush
-		txtSend.Text = ""
-	End If
-End Sub
-
 Sub Timer1_Tick
 	If connected Then
 		If TextReader1.Ready Then 'check if there is any data waiting to be read
-			txtLog.Text = txtLog.Text & TextReader1.ReadLine & CRLF
-			txtLog.SelectionStart = txtLog.Text.Length
+
 		End If
 	End If
 End Sub
 
-Private Sub ButtonRecuCapteur_Click
+Private Sub Avancer_Up
 	If connected Then
-		TextWriter1.WriteLine("ButtonRecuCapteur")
+		TextWriter1.WriteLine("B")
 		TextWriter1.Flush
 	End If
 End Sub
 
-Private Sub Button4_Click
+Private Sub Avancer_Down
 	If connected Then
-		TextWriter1.WriteLine("Button4")
+		TextWriter1.WriteLine("Z")
 		TextWriter1.Flush
 	End If
 End Sub
 
-Private Sub Button3_Click
+Private Sub Reculer_Up
 	If connected Then
-		TextWriter1.WriteLine("Button3")
+		TextWriter1.WriteLine("B")
 		TextWriter1.Flush
 	End If
 End Sub
 
-Private Sub Button2_Click
+Private Sub Reculer_Down
 	If connected Then
-		TextWriter1.WriteLine("Button2")
+		TextWriter1.WriteLine("S")
 		TextWriter1.Flush
 	End If
 End Sub
 
-Private Sub Button1_Click
+Private Sub Gauche_Up
 	If connected Then
-		TextWriter1.WriteLine("Button1")
+		TextWriter1.WriteLine("B")
 		TextWriter1.Flush
+	End If
+End Sub
+
+Private Sub Gauche_Down
+	If connected Then
+		TextWriter1.WriteLine("Q")
+		TextWriter1.Flush
+	End If
+End Sub
+
+Private Sub Droite_Up
+	If connected Then
+		TextWriter1.WriteLine("B")
+		TextWriter1.Flush
+	End If
+End Sub
+
+Private Sub Droite_Down
+	If connected Then
+		TextWriter1.WriteLine("D")
+		TextWriter1.Flush
+	End If
+End Sub
+
+
+Private Sub BuzzerOnOff_Click
+	If connected Then
+		TextWriter1.WriteLine("R")
+		TextWriter1.Flush
+	End If
+End Sub
+
+Private Sub LEDON_Click
+	If connected Then
+		TextWriter1.WriteLine("L")
+		TextWriter1.Flush
+		LEDOFF.Visible=True
+		LEDON.Visible=False
+	End If
+End Sub
+
+Private Sub LEDOFF_Click
+	If connected Then
+		TextWriter1.WriteLine("F")
+		TextWriter1.Flush
+		LEDON.Visible=True
+		LEDOFF.Visible=False
 	End If
 End Sub
